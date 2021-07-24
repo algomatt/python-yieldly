@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from typing import List, Union
 
 from algosdk.future.transaction import (

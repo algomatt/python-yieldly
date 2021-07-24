@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from algosdk.future.transaction import (
     ApplicationNoOpTxn,
     AssetTransferTxn,

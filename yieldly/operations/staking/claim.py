@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from yieldly.util import calculate_claimable, get_account
 
 from algosdk.future.transaction import (
