@@ -6,8 +6,8 @@ I will add a better readme but the main things included are:
 
 * The `yieldly/` folder contains a set of classes describing the currently implemented operations (e.g. claiming, staking)
 * There are currently two scripts in the `scripts/` folder that utilise these:
-* * `withdraw_restake.py` is a good test, it simply withdraws 1 YLDY and restakes it
-* * `claim_restake.py` will perform the full claiming chain (from both NLL & YLDY staking), and restake the resulting YLDY
+    * `withdraw_restake.py` is a good test, it simply withdraws 1 YLDY and restakes it
+    * `claim_restake.py` will perform the full claiming chain (from both NLL & YLDY staking), and restake the resulting YLDY
 
 Example:
 
