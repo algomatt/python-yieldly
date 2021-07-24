@@ -11,7 +11,7 @@ I will add a better readme but the main things included are:
 
 Example:
 
-`python3 -m venv venv && source venv/bin/activate && PYTHONPATH scripts/withdraw_restake.py`
+`python3 -m venv venv && source venv/bin/activate && PYTHONPATH=. scripts/withdraw_restake.py`
 
 Important points:
 
