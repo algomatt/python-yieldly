@@ -12,6 +12,7 @@ from yieldly.util import (
     get_params,
     get_private_key,
     group_transactions,
+    post_slack_message,
     wait_for_confirmation,
 )
 
@@ -56,3 +57,8 @@ class BaseOperation:
 
     def sign_transactions(self, private_key, escrow_lsig):
         raise NotImplementedError("Do not call BaseOperation directly.")
+
+    def log(self, message):
+        print(message)
+
+        post_slack_message(message)

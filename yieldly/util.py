@@ -1,4 +1,5 @@
 import base64
+import requests
 import time
 
 from algosdk import mnemonic
@@ -11,6 +12,7 @@ from .constants import (
     ALGOD_ADDRESS,
     ALGOD_TOKEN,
     ESCROW_PROGRAM_STR,
+    SLACK_WEBHOOK_URL,
 )
 
 
@@ -113,3 +115,11 @@ def calculate_claimable(application_id, total_key="TYUL"):
     uss = user_state.get("USS", 0) + (user_state["UA"] * days_since_ut)
 
     return int(global_state[total_key] * (uss / gss))
+
+def post_slack_message(message):
+    if not SLACK_WEBHOOK_URL:
+        return
+
+    requests.post(SLACK_WEBHOOK_URL, json={
+        'text': message,
+    })

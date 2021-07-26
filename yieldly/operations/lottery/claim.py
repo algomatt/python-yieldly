@@ -21,8 +21,7 @@ class ClaimOperation(BaseOperation):
     def __init__(self):
         self.claimable = calculate_claimable(APPLICATION_ID_LOTTERY, total_key="TYUL")
 
-        print("Claiming from NLL:")
-        print(f"{self.claimable / 1e6:.6} YLDY")
+        self.log(f"Claiming from NLL:\n{self.claimable / 1e6:.6} YLDY")
 
         super().__init__()
 

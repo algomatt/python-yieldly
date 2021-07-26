@@ -24,9 +24,9 @@ class ClaimOperation(BaseOperation):
             "yldy": calculate_claimable(APPLICATION_ID_STAKING, total_key="TYUL"),
         }
 
-        print("Claiming from YLDY staking:")
-        print(f"{self.claimable['algo'] / 1e6:.6} ALGO")
-        print(f"{self.claimable['yldy'] / 1e6:.6} YLDY")
+        self.log("Claiming from YLDY staking:\n" +
+            f"{self.claimable['algo'] / 1e6:.6} ALGO\n" +
+            f"{self.claimable['yldy'] / 1e6:.6} YLDY")
 
         super().__init__()
 

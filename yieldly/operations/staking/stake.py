@@ -16,7 +16,7 @@ from yieldly.util import get_account
 
 class StakeOperation(BaseOperation):
     def __init__(self, amount):
-        print(f"Staking {amount / 1e6:.6} YLDY")
+        self.log(f"Staking {amount / 1e6:.6} YLDY")
 
         self.amount = amount
 
