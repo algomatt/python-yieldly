@@ -18,7 +18,7 @@ from yieldly.util import get_account
 
 class WithdrawOperation(BaseOperation):
     def __init__(self, amount):
-        print(f"Withdrawing from NLL Algo staking: {amount / 1e6:.6} Algo")
+        self.log(f"Withdrawing from NLL Algo staking: {amount / 1e6:.6} Algo")
 
         self.amount = amount
 

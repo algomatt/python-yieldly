@@ -17,7 +17,7 @@ from yieldly.util import get_account
 
 class DepositOperation(BaseOperation):
     def __init__(self, amount):
-        print(f"Depositing {amount / 1e6:.6} ALGO")
+        self.log(f"Depositing {amount / 1e6:.6} ALGO")
 
         self.amount = amount
 
@@ -50,7 +50,7 @@ class DepositOperation(BaseOperation):
                 get_account(),
                 self.params,
                 ESCROW_ADDR,
-                self.amount
+                self.amount,
             )
         )
 
@@ -60,4 +60,3 @@ class DepositOperation(BaseOperation):
             self.transactions[1].sign(private_key),
             self.transactions[2].sign(private_key),
         ]
-
