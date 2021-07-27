@@ -1,4 +1,5 @@
 import base64
+import hashlib
 import requests
 import time
 
@@ -12,6 +13,7 @@ from .constants import (
     ALGOD_ADDRESS,
     ALGOD_TOKEN,
     ESCROW_PROGRAM_STR,
+    PROGRAM_HASHES,
     SLACK_WEBHOOK_URL,
 )
 
@@ -100,9 +102,14 @@ def process_account_state(account):
 def calculate_claimable(application_id, total_key="TYUL"):
     client = get_client()
 
-    global_state = process_state(
-        client.application_info(application_id)["params"]["global-state"]
-    )
+    app_params = client.application_info(application_id)["params"]
+
+    program_hash = hashlib.sha256(app_params["approval-program"].encode()).hexdigest()
+
+    if program_hash != PROGRAM_HASHES[application_id]:
+        raise Exception("Program hash mismatch, contract must have been updated.")
+
+    global_state = process_state(app_params["global-state"])
 
     user_state = process_account_state(client.account_info(get_account()))[
         application_id
